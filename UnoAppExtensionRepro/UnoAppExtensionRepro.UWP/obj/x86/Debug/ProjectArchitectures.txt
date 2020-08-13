@@ -1,0 +1,1 @@
+C:\Users\pdeco\source\repos\UnoAppExtensionRepro\UnoAppExtensionRepro\UnoAppExtensionRepro.UWP\UnoAppExtensionRepro.UWP.csproj;x86
