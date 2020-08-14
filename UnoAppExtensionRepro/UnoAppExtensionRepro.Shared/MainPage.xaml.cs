@@ -13,6 +13,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+#if __IOS__
+using UnoAppExtensionRepro.iOS.Intent;
+#endif
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace UnoAppExtensionRepro
@@ -25,6 +29,19 @@ namespace UnoAppExtensionRepro
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        void Button_Click(System.Object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+#if __IOS__
+            DoSomethingIntent dsi = new DoSomethingIntent();
+            var interaction = new Intents.INInteraction(dsi, null);
+            interaction.Identifier = "zangai2";
+            interaction.DonateInteraction((error) =>
+            {
+                Console.WriteLine(error);
+            });
+#endif
         }
     }
 }
